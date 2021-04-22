@@ -25,4 +25,7 @@
     margin: 0.5rem;
     padding-bottom: 0.25rem;
   }
+  .mealDescDiv{
+    max-width: 177px;
+  }
 }
