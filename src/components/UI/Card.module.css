@@ -4,3 +4,10 @@
     border-radius: 14px;
     background-color: white;
 }
+
+@media (max-width: 550px){
+    .card{
+        padding: 0.05rem;
+        border-radius: 10px;
+    }
+}

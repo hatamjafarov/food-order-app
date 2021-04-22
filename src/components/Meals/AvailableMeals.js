@@ -5,27 +5,33 @@ import MealItem from "./MealItem/MealItem";
 const DUMMY_MEALS = [
     {
         id: "m1",
-        name: "Sushi",
-        description: "Finest fish and veggies",
-        price: 22.99,
+        name: "Tikə-kabab",
+        description: "Toyuq və mal əti",
+        price: 5.99,
     },
     {
         id: "m2",
-        name: "Schnitzel",
-        description: "A german specialty!",
-        price: 16.5,
+        name: "Üç bacı dolması",
+        description: "Pomidor, bibər və badımcan",
+        price: 9.5,
     },
     {
         id: "m3",
-        name: "Barbecue Burger",
-        description: "American, raw, meaty",
-        price: 12.99,
+        name: "Dovğa",
+        description: "Azərbaycanın milli yeməyi",
+        price: 3.99,
     },
     {
         id: "m4",
-        name: "Green Bowl",
-        description: "Healthy...and green...",
-        price: 18.99,
+        name: "Göyərti küküsü",
+        description: "Sağlam və yaşıl qidalanma",
+        price: 4.5,
+    },
+    {
+        id: "m5",
+        name: "Piti",
+        description: "Azərbaycan və Türkiyənin milli yeməyi",
+        price: 9.9,
     },
 ];
 
