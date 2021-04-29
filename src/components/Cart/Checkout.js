@@ -42,12 +42,22 @@ const Checkout = (props) => {
             enteredPostlaIsValid &&
             enteredCityIsValid &&
             enteredStreetIsValid;
+        if (formIsValid) {
+        }
     };
 
-    const nameControl = `${classes.control} ${formInputsValidity.name ? '' : classes.invalid}`;
-    const streetControl = `${classes.control} ${formInputsValidity.street ? '' : classes.invalid}`;
-    const postalControl = `${classes.control} ${formInputsValidity.postal ? '' : classes.invalid}`;
-    const cityControl = `${classes.control} ${formInputsValidity.city ? '' : classes.invalid}`;
+    const nameControl = `${classes.control} ${
+        formInputsValidity.name ? "" : classes.invalid
+    }`;
+    const streetControl = `${classes.control} ${
+        formInputsValidity.street ? "" : classes.invalid
+    }`;
+    const postalControl = `${classes.control} ${
+        formInputsValidity.postal ? "" : classes.invalid
+    }`;
+    const cityControl = `${classes.control} ${
+        formInputsValidity.city ? "" : classes.invalid
+    }`;
 
     return (
         <div className={classes.formDiv}>
@@ -55,22 +65,30 @@ const Checkout = (props) => {
                 <div className={nameControl}>
                     <label htmlFor="name">Adınız</label>
                     <input type="text" id="name" ref={nameInput} />
-                    {!formInputsValidity.name && <p>Adınızı düzgün daxil edin!</p>}
+                    {!formInputsValidity.name && (
+                        <p>Adınızı düzgün daxil edin!</p>
+                    )}
                 </div>
                 <div className={streetControl}>
                     <label htmlFor="street">Soyadınız</label>
                     <input type="text" id="street" ref={streetInput} />
-                    {!formInputsValidity.street && <p>Küçəni düzgün daxil edin!</p>}
+                    {!formInputsValidity.street && (
+                        <p>Küçəni düzgün daxil edin!</p>
+                    )}
                 </div>
                 <div className={postalControl}>
                     <label htmlFor="postal">Poçt indeksi</label>
                     <input type="text" id="postal" ref={postalInput} />
-                    {!formInputsValidity.postal && <p>Poçt indeksinizi düzgün daxil edin!</p>}
+                    {!formInputsValidity.postal && (
+                        <p>Poçt indeksinizi düzgün daxil edin!</p>
+                    )}
                 </div>
                 <div className={cityControl}>
                     <label htmlFor="city">Şəhər</label>
                     <input type="text" id="city" ref={cityInput} />
-                    {!formInputsValidity.city && <p>Şəhər adını düzgün daxil edin!</p>}
+                    {!formInputsValidity.city && (
+                        <p>Şəhər adını düzgün daxil edin!</p>
+                    )}
                 </div>
                 <div className={classes.actions}>
                     <button type="button" onClick={props.onCancel}>
