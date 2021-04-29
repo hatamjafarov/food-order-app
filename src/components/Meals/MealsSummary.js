@@ -7,7 +7,7 @@ const MealSummary = () => {
         <section className={classes.summary}>
             <h2>Əsl ləzzətin ünvanı</h2>
             <p>
-                Aşağıdakı siyahından istədiyiniz məhsulu seçin və ləzzətdən zövq alın. 
+                Aşağıdakı siyahıdan istədiyiniz məhsulu seçin və ləzzətdən zövq alın. 
             </p>
             <p>Bütün məhsullar yüksək keyfiyyətlə hazırlanıb.</p>
         </section>

@@ -1,42 +1,57 @@
+import { useEffect, useState } from "react";
 import Card from "../UI/Card";
 import classes from "./AvailableMeals.module.css";
 import MealItem from "./MealItem/MealItem";
 
-const DUMMY_MEALS = [
-    {
-        id: "m1",
-        name: "Tikə-kabab",
-        description: "Toyuq və mal əti",
-        price: 5.99,
-    },
-    {
-        id: "m2",
-        name: "Üç bacı dolması",
-        description: "Pomidor, bibər və badımcan",
-        price: 9.5,
-    },
-    {
-        id: "m3",
-        name: "Dovğa",
-        description: "Azərbaycanın milli yeməyi",
-        price: 3.99,
-    },
-    {
-        id: "m4",
-        name: "Göyərti küküsü",
-        description: "Sağlam və yaşıl qidalanma",
-        price: 4.5,
-    },
-    {
-        id: "m5",
-        name: "Piti",
-        description: "Azərbaycan və Türkiyənin milli yeməyi",
-        price: 9.9,
-    },
-];
-
 const AvailableMeals = () => {
-    const mealsList = DUMMY_MEALS.map((meal) => (
+    const [meals, setMeals] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [httpError, setHttpError] = useState();
+
+    useEffect(() => {
+        const fetchMeals = async () => {
+            const response = await fetch(
+                "https://reactmeals-default-rtdb.europe-west1.firebasedatabase.app/meals.json"
+            );
+
+            if (!response.ok) {
+                throw new Error();
+            }
+
+            const responseData = await response.json();
+            const loadedMeals = [];
+
+            for (const key in responseData) {
+                loadedMeals.push({
+                    id: key,
+                    name: responseData[key].name,
+                    description: responseData[key].description,
+                    price: responseData[key].price,
+                });
+            }
+            setMeals(loadedMeals);
+            setIsLoading(false);
+        };
+
+        fetchMeals().catch((error) => {
+            setIsLoading(false);
+            setHttpError("Nəsə düz getmədi :(");
+        });
+    }, []);
+
+    if (isLoading) {
+        return (
+            <section>
+                <div className={classes["lds-hourglass"]}></div>
+            </section>
+        );
+    }
+
+    if (httpError) {
+        return <section>{httpError}</section>;
+    }
+
+    const mealsList = meals.map((meal) => (
         <MealItem
             key={meal.id}
             id={meal.id}
