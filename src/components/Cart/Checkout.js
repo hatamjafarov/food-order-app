@@ -42,8 +42,17 @@ const Checkout = (props) => {
             enteredPostlaIsValid &&
             enteredCityIsValid &&
             enteredStreetIsValid;
+
+
         if (formIsValid) {
         }
+
+        props.onConfirm({
+            name: enteredName,
+            city: enteredCity,
+            street: enteredStreet,
+            postal: enteredPostal
+        })
     };
 
     const nameControl = `${classes.control} ${
@@ -70,7 +79,7 @@ const Checkout = (props) => {
                     )}
                 </div>
                 <div className={streetControl}>
-                    <label htmlFor="street">Soyadınız</label>
+                    <label htmlFor="street">Küçəniz</label>
                     <input type="text" id="street" ref={streetInput} />
                     {!formInputsValidity.street && (
                         <p>Küçəni düzgün daxil edin!</p>
