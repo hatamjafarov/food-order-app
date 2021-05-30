@@ -44,7 +44,8 @@ const Checkout = (props) => {
             enteredStreetIsValid;
 
 
-        if (formIsValid) {
+        if (!formIsValid) {
+            return;
         }
 
         props.onConfirm({
@@ -89,7 +90,7 @@ const Checkout = (props) => {
                     <label htmlFor="postal">Poçt indeksi</label>
                     <input type="text" id="postal" ref={postalInput} />
                     {!formInputsValidity.postal && (
-                        <p>Poçt indeksinizi düzgün daxil edin!</p>
+                        <p>Poçt indeksi 5 rəqəmli olmalıdır!</p>
                     )}
                 </div>
                 <div className={cityControl}>
