@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import classes from "./Checkout.module.css";
 
 const isEmpty = (value) => value.trim() === "";
-const isFiveChars = (value) => value.trim().length === 5;
+const isFiveChars = (value) => value.trim().length === 4;
 
 const Checkout = (props) => {
     const [formInputsValidity, setFormInputsValidity] = useState({
@@ -90,7 +90,7 @@ const Checkout = (props) => {
                     <label htmlFor="postal">Poçt indeksi</label>
                     <input type="text" id="postal" ref={postalInput} />
                     {!formInputsValidity.postal && (
-                        <p>Poçt indeksi 5 rəqəmli olmalıdır!</p>
+                        <p>Poçt indeksi 4 rəqəmli olmalıdır!</p>
                     )}
                 </div>
                 <div className={cityControl}>
